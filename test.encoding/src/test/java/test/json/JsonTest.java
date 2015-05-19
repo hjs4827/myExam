@@ -36,5 +36,17 @@ public class JsonTest {
 		assertEquals("서울시", member2.getAddress());
 		assertEquals("010-3497-7897", member2.getTel());
 	}
+	
+	@Test
+	public void jsonObjectTest(){
+		JSONObject root = new JSONObject();
+		JSONObject json = new JSONObject();
+		json.put("param1", 10);
+		json.put("param2", 20);
+		
+		root.put("root", json);
+		System.out.println(root.toString());
+		assertEquals("{\"root\":{\"param1\":10,\"param2\":20}}", root.toString());
+	}
 
 }
