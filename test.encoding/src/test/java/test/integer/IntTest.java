@@ -2,6 +2,8 @@ package test.integer;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Random;
+
 import org.junit.Test;
 
 public class IntTest {
@@ -17,5 +19,13 @@ public class IntTest {
 			// TODO: handle exception
 		}
 		assertEquals(0, num);
+	}
+	
+	@Test
+	public void randomTest(){
+		Random random = new Random();
+		for (int i = 0; i < 10; i++) {
+			System.out.println(new Random().nextInt(10));
+		}
 	}
 }

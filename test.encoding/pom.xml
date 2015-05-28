@@ -48,6 +48,22 @@
 			<artifactId>mail</artifactId>
 			<version>1.5.0-b01</version>
 		</dependency>
+		
+		<!-- Redis(Jedis) -->
+		<dependency>
+		    <groupId>redis.clients</groupId>
+		    <artifactId>jedis</artifactId>
+		    <version>2.7.2</version>
+		    <type>jar</type>
+		    <scope>compile</scope>
+		</dependency>
+		<!-- common pool jedis 에서 사용 -->
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<version>1.6</version>
+		</dependency>
+				
 				
 	</dependencies>
 </project>
