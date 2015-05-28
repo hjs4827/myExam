@@ -58,6 +58,23 @@ public class GmailAPI {
 			System.exit(1);
 		}
 	}
+	public static void main(String[] args) throws IOException {
+        // Build a new authorized API client service.
+        Gmail service = getGmailService();
+
+        // Print the labels in the user's account.
+        String user = "kinspower-956";
+        ListLabelsResponse listResponse = service.users().labels().list(user).execute();
+        List<Label> labels = listResponse.getLabels();
+        if (labels.size() == 0) {
+            System.out.println("No labels found.");
+        } else {
+            System.out.println("Labels:");
+            for (Label label : labels) {
+                System.out.printf("- %s\n", label.getName());
+            }
+        }
+    }
 	/**
      * Creates an authorized Credential object.
      * @return an authorized Credential object.
@@ -92,23 +109,7 @@ public class GmailAPI {
                 .build();
     }
 
-    public static void main(String[] args) throws IOException {
-        // Build a new authorized API client service.
-        Gmail service = getGmailService();
-
-        // Print the labels in the user's account.
-        String user = "kinspower-956";
-        ListLabelsResponse listResponse = service.users().labels().list(user).execute();
-        List<Label> labels = listResponse.getLabels();
-        if (labels.size() == 0) {
-            System.out.println("No labels found.");
-        } else {
-            System.out.println("Labels:");
-            for (Label label : labels) {
-                System.out.printf("- %s\n", label.getName());
-            }
-        }
-    }
+    
 	/**
 	 * Create a MimeMessage using the parameters provided.
 	 *

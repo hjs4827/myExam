@@ -23,7 +23,7 @@ public class GmailAPITest {
 		
 		MimeMessage email = api.createEmail(to, from, subject, bodyText);
 		Message message = api.createMessageWithEmail(email);
-		api.sendMessage(service, userId, email);
+//		api.sendMessage(service, userId, email);
 		
 	}
 
