@@ -34,4 +34,20 @@ public class ApacheFileUtilsTest {
 		
 		assertTrue(FileUtils.contentEquals(tempFile1, tempFile2));
 	}
+	
+	@Test
+	public void appendTest() throws IOException{
+		// generate file
+		File appendFile = FileUtils.getFile(MAIN_PATH+"appendTestFile.txt");
+		
+		// write file
+		String sentence = "sentence1";
+		FileUtils.write(appendFile, sentence);
+		
+		// append string
+		String appendSentence = "append text";
+		FileUtils.writeStringToFile(appendFile, appendSentence, true);
+		String content = FileUtils.readFileToString(appendFile);
+		assertEquals(sentence+appendSentence, content);
+	}
 }

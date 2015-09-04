@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -22,6 +23,7 @@ import org.junit.Test;
 public class UrlConnectionTest {
 	URL url;
 	URLConnection uc;
+	HttpURLConnection huc;
 	private static final String urlStr = "http://www039.dreamsearch.or.kr/servlet/altoolbarApi?type=urlDownload";
 	private static final String MAIN_PATH = "C:\\workspace\\tempFile\\";
 	
@@ -74,16 +76,19 @@ public class UrlConnectionTest {
 	@Test
 	public void serverConnectionTest(){
 		try {
-			url = new URL("https://www.dkljfaskl.com");
-			uc = url.openConnection();
+			url = new URL("http://naver.com");
+			huc = (HttpURLConnection) url.openConnection();
+			
+			System.out.println(huc.getResponseCode());
+			assertEquals(HttpURLConnection.HTTP_OK, huc.getResponseCode());
 			// 입력 받을수 있는 상태인지?
 			System.out.println(uc.getAllowUserInteraction()); //false
 			assertFalse(uc.getAllowUserInteraction());
 			
-			url = new URL("http://www039.dreamsearch.or.kr/servlet/altoolbarApi?type=urlWithScDownload");
-			uc = url.openConnection();
-			System.out.println(uc.getAllowUserInteraction()); //false
-			assertTrue(uc.getAllowUserInteraction());
+			// 찾을수 없음.
+			url = new URL("http://www38.dreamsearch.or.kr/altoolbar/config2.txt");
+			huc = (HttpURLConnection) url.openConnection();
+			assertEquals(HttpURLConnection.HTTP_NOT_FOUND ,huc.getResponseCode());
 		}
 		catch (MalformedURLException e) {
 			// 
@@ -95,6 +100,5 @@ public class UrlConnectionTest {
 			e.printStackTrace();
 			fail(e.toString());
 		}
-		
 	}
 }

@@ -86,5 +86,12 @@ public class JsonTest {
 		System.out.println(jsonArrayFromList2);
 		assertEquals(jsonArray.toString(), jsonArrayFromList2.toString());
 	}
-
+	
+	@Test
+	public void setNullTest(){
+		JSONObject obj = new JSONObject();
+		obj.put("key", "[{}]");
+		System.out.println(obj.toString());
+		
+	}
 }

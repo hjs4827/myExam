@@ -52,5 +52,14 @@ public class StringTest {
 		}
 		System.out.println(list2.toString());
 	}
+	
+	@Test
+	public void specialTextTest(){
+		String script = "<script type=\\\"text/javascript\\\">     google_ad_client = \\\"ca-pub-1706914695211181\\\";     google_ad_slot = \\\"6421110239\\\";     google_ad_width = 250;     google_ad_height = 250; </script> <!-- news_right_bottom_criteo_250x250_20130417 --> <script type=\\\"text/javascript\\\" src=\\\"http://pagead2.googlesyndication.com/pagead/show_ads.js\\\"> </script></body></html>";
+		System.out.println(script);
+		
+		script = script.replaceAll("\\\\", "");
+		System.out.println(script);
+	}
 
 }
