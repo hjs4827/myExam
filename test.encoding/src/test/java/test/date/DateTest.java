@@ -11,11 +11,12 @@ public class DateTest {
 	@Test
 	public void test() {
 		// 현제 시간 오후4시 10분 -> 1610 
-		SimpleDateFormat hhmi = new SimpleDateFormat("kkmm");
+		SimpleDateFormat hhmi = new SimpleDateFormat("kkmmss");
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.HOUR_OF_DAY,16);
 		cal.set(Calendar.MINUTE,10);
 		String hm=hhmi.format(cal.getTime());
+		System.out.println(hm);
 		assertEquals(hm, "1610");
 		 
 	}
@@ -124,5 +125,6 @@ public class DateTest {
  
         System.out.println("시분초로 변환하면 " + tmp + "입니다.");
 	}
+	
 
 }
