@@ -61,5 +61,17 @@ public class StringTest {
 		script = script.replaceAll("\\\\", "");
 		System.out.println(script);
 	}
+	
+	@Test
+	public void replaceUrl(){
+	  String purl = " http://m.jestina.co.kr/Shop/Detail?p_code=JNR4D742-M254TR&dc=naverep&r_url=http://www.jestina.co.kr/shop/shop_detail.asp?p_code=JNR4D742-M254TR";
+	  String pcodeTxt = purl.substring(purl.indexOf("p_code=")+7);
+    if(pcodeTxt.indexOf("&") != -1){
+      pcodeTxt = pcodeTxt.substring(0, pcodeTxt.indexOf("&"));
+    }
+    purl = "http://www.jestina.co.kr/shop/shop_detail.asp?p_code=" + pcodeTxt;
+    System.out.println(purl);
+	  
+	}
 
 }

@@ -38,9 +38,9 @@ public class JedisManager {
 	 * POOL 생성
 	 */
     public JedisManager() {
-    	String redis_host = "127.0.0.1";
-    	//String redis_pw = PropertyHandler.getProperty("REDIS_PWD");
-    	this.pool = new JedisPool(new JedisPoolConfig(),redis_host, REDIS_PORT,10000);
+    	String redis_host = "119.205.215.106";
+    	String redis_pw = "Fpeltmdbwj2015!)^";
+    	this.pool = new JedisPool(new JedisPoolConfig(),redis_host, REDIS_PORT,10000,redis_pw);
     }
     
     /**

@@ -39,7 +39,5 @@ public class GetAccessLogRank {
 		}catch(Exception e){
 			e.toString();
 		}
-		
-		
 	}
 }

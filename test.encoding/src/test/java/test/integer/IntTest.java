@@ -28,4 +28,12 @@ public class IntTest {
 			System.out.println(new Random().nextInt(10));
 		}
 	}
+	
+	@Test
+	public void 소수점만구하기테스트(){
+	  double num1 = 12.99;
+	  double result = num1-Math.floor(num1);
+	  System.out.println(Double.parseDouble(String.format("%.2f",result)) );
+	}
+
 }
